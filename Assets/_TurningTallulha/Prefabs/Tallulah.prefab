@@ -4868,7 +4868,10 @@ MonoBehaviour:
   StartHeight: -20
   SprayShotDuration: 0.1
   SprayParticles: {fileID: 1671364259}
-  CrashSound: {fileID: 8300000, guid: f5dacf12ed7a2534baf7581cfd91287d, type: 3}
+  CrashSounds:
+  - {fileID: 8300000, guid: a5719cf40c4fba24d8e1fbb136d583b8, type: 3}
+  - {fileID: 8300000, guid: b7ff2893e0fefea4ebfb8fcee65fa12d, type: 3}
+  - {fileID: 8300000, guid: 7762cfeafb5c9f34ab136d7575eb6727, type: 3}
   MinCollisionSoundDelay: 0.2
   EngineMenuVol: 0.1
   EngineGameVol: 0.5

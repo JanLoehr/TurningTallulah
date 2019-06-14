@@ -17,7 +17,7 @@ public class TallulhaControl : MonoBehaviour
     public ParticleSystem SprayParticles;
 
     [Header("Audio")]
-    public AudioClip CrashSound;
+    public AudioClip[] CrashSounds;
     public float MinCollisionSoundDelay;
 
     [Space()]
@@ -137,9 +137,11 @@ public class TallulhaControl : MonoBehaviour
     {
         if (Time.time > _lastCollisionSound + MinCollisionSoundDelay)
         {
-            EngineAudioSource.PlayOneShot(CrashSound);
+            EngineAudioSource.PlayOneShot(GetRandomCrashSound());
             _lastCollisionSound = Time.time;
         }
+
+        SetSoundVolume(_windSoundRoutine, WindAudioSource, 0);
     }
 
     public void SetPlaying()
@@ -236,6 +238,11 @@ public class TallulhaControl : MonoBehaviour
         }
 
         routine = StartCoroutine(FadeSoundAsync(source, vol));
+    }
+
+    private AudioClip GetRandomCrashSound()
+    {
+        return CrashSounds[UnityEngine.Random.Range(0, CrashSounds.Length)];
     }
 
     private IEnumerator FadeSoundAsync(AudioSource source, float vol)
